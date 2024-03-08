@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @org.springframework.stereotype.Controller
 public class Controller {
-	@GetMapping(value ="/test")
-	public String home() {		
-		return "Test";
-	}
+//	@GetMapping(value ="/test")
+//	public String home() {		
+//		return "/WEB-INF/view/user/Test";
+//	}
 
-	@GetMapping(value ="/test2")
-	public String test2() {
-		return "";
-	}
+//	@GetMapping(value ="/test2")
+//	public String test2() {
+//		return "";
+//	}
 	
 }
