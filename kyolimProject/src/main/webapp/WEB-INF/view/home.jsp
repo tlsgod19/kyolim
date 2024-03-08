@@ -3,7 +3,6 @@
 <%@ include file="/WEB-INF/view/include/link.jsp" %>
 <link rel="stylesheet" href="/css/layout/nav.css">
 <link rel="stylesheet" href="/css/home.css">
- 차선임
 <%@ include file="/WEB-INF/view/include/header.jsp" %>
  	<!-- 콘텐츠 -->
     <div class="wrap">
