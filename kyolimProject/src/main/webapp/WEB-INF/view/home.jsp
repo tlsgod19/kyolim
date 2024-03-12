@@ -11,19 +11,16 @@
                  <div id="search_box">
                      <div>
                          <input type="hidden" id="deleveryAddress1" placeholder="우편번호" value="${BMaddress.address1 }" name="address1" readonly>
-                         <input type="text" value="${BMaddress.address2 }"
+                         <input type="text" value="${BMaddress.address2 }" onclick="modifyAddress()" 
                              id="deleveryAddress2" readonly placeholder="주소를 입력해 주세요" name="address2"><br>
                      </div>
- 
                      <div class="search_btn">
                          <label for="search_btn">
                              <i class="fas fa-search"></i>
                          </label>
- 
                          <input type="button" name="search" id="search_btn">
- 
                      </div>
- 
+                     <%@ include file="/WEB-INF/view/include/modifyAddress.jsp" %>
                  </div>
             </section>
             <section class="category_box">
@@ -167,6 +164,24 @@
 		
 		location.href = "/store/" + (100+index) + "/" +address1;
 	})
+	
+		// 추가
+	console.log("data.zonecode = " + data.zonecode);
+	console.log("addr = " + addr);
+							
+	$.ajax({
+	    url: "/addressModify",
+	    data: {address1 : data.zonecode , address2 : addr},
+	    type: "post"
+	})
+	.done(function(){
+	    $(".address1").text(addr);
+		address1 = data.zonecode;
+	})
+	.fail(function(){
+	    alert("실패");
+	})
+	// 추가
  
 </script>
  
