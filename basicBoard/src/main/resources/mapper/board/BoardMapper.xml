@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.basicBoard.domain.board.mapper.BoardMapper">
+	<select id="getListBoard" parameterType="com.company.basicBoard.domain.board.model.BoardVO" resultType="com.company.basicBoard.domain.board.model.BoardVO">
+		SELECT BOARD_ID
+			 , WRITER
+			 , TITLE
+			 , CONTENT
+			 , REG_DATE
+			 , UPDATE_DATE
+			 , DELETE_DATE
+		  FROM BOARD
+		  <where>
+		  <if test="data.title != null and data.title != ''">
+			 AND TITLE LIKE '%' || #{data.title} || '%'
+		  </if>
+		  <if test="data.writer != null and data.writer != ''">
+			 AND WRITER LIKE '%' || #{data.writer} || '%'
+		  </if>
+		  </where>
+		ORDER BY BOARD_ID DESC
+	    OFFSET #{pageable.offset} ROWS FETCH NEXT #{pageable.pageSize} ROWS ONLY
+	    
+	</select>
+	
+	<select id="getListBoardCount" parameterType="com.company.basicBoard.domain.board.model.BoardVO" resultType="int">
+		SELECT COUNT(*) AS CNT
+		  FROM BOARD
+		  <where>
+		  <if test="title != null and title != ''">
+			 AND TITLE LIKE '%' || #{title} || '%'
+		  </if>
+		  <if test="writer != null and writer != ''">
+			 AND WRITER LIKE '%' || #{writer} || '%'
+		  </if>
+		  </where>
+	</select>
+	    <!-- 게시물 삽입 -->
+     <insert id="InsertBoard" parameterType="com.company.basicBoard.domain.board.model.BoardVO">
+        INSERT INTO BOARD (WRITER, TITLE, CONTENT, REG_DATE)
+        VALUES (#{writer}, #{title}, #{content},SYSDATE())
+    </insert>
+	
+	<select id="DetailBoard" parameterType="com.company.basicBoard.domain.board.model.BoardVO">
+	 	select TITLE , WRITER, CONTENT, BOARD_ID from board 
+		where board_id = #{boardId}
+	</select>	
+	
+	<update id="UpdateBoard"  parameterType="com.company.basicBoard.domain.board.model.BoardVO">
+		update board 
+		set TITLE=#{title}, CONTENT=#{content} 
+		where board_id= #{boardId}
+	</update>
+	
+	<insert id="SignUp" parameterType="String">
+		  INSERT INTO USERS (username, password, email)
+        VALUES (#{username}, #{password}, #{email})
+	</insert>
+</mapper>

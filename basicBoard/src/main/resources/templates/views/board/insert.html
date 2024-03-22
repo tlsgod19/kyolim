@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>게시판</title>
+	
+	<!-- ✅ 추가 -->
+	<link type="text/css" href="/css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="/js/com-ajax.js"></script>
+	<script type="text/javascript" src="/js/com-page.js"></script>
+	<script type="text/javascript">
+
+
+	
+	// 게시글 등록
+	function insertBoard() {
+		debugger;
+	    const title = document.querySelector("#inputTitle").value;
+	    const writer = document.querySelector("#inputWriter").value;
+	    const content = document.querySelector("#inputContent").value;
+		const data = "?title=" + title + "&writer=" + writer + "&content=" + content;
+	    
+		
+	    AJAX.ajaxCall("GET", "/insertBoards", data, afterInsertBoard);
+	}
+
+	// 등록 후 처리
+	function afterInsertBoard(response) {
+		debugger;
+	    alert("게시글이 등록되었습니다.");
+	    resetForm();
+		const url = '/board';
+		debugger;
+		// 새로운 페이지로 이동
+		window.location.href = url;
+	}
+
+	// 폼 초기화
+	function resetForm() {
+	    document.querySelector("#inputTitle").value = "";
+	    document.querySelector("#inputWriter").value = "";
+	    document.querySelector("#inputContent").value = "";
+	}
+	
+	
+</script>
+</head>
+
+<body>
+	<div>
+	
+	
+		<div>
+    <h2>게시글 입력</h2>
+    <table>
+        <tr>
+            <th>제목</th>
+            <td><input type="text" id="inputTitle"></td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td><input type="text" id="inputWriter"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><textarea id="inputContent"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick=insertBoard()>등록</button></td>
+            <td><button onclick="window.location.href='board'">목록</button></td>
+            
+        </tr>
+    </table>
+</div>
+
+	</div>
+	<div>
+		<table>
+			<colgroup>
+				<!-- ✅ 페이지 번호 추가 -->
+				<col width="150px" />
+				<col width="150px" />
+				<col width="150px" />
+				<col width="250px" />
+			</colgroup>
+
+			<tbody id="fieldListBody">
+			</tbody>
+		</table>
+		<!-- ✅ 페이징 표시되는 부분 추가 -->
+		<ul id = "pagingArea" class="pagination"></ul>
+	</div>
+</body>
+</html>

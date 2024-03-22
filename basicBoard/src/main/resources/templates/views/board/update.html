@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+    <meta charset="UTF-8">
+    <title>게시글 업데이트</title>
+    <!-- 추가된 스타일 시트 -->
+    <link type="text/css" href="/css/style.css" rel="stylesheet">
+    
+    
+    <script type="text/javascript">
+    var boardId = [[${data.boardId}]];
+			
+    function fn_sub(boardId){
+    	// 파라미터를 포함한 URL 생성
+		
+		const titleValue = document.querySelector("#title").value;
+	    const contentValue = document.querySelector("#content").value;
+		var data = "?title=" + titleValue +  "&content=" + contentValue;
+		const url = '/UpdateBoards?boardId=' + boardId +  '&content=' + contentValue + '&title=' + titleValue;
+		
+
+		// 새로운 페이지로 이동
+		window.location.href = url;	
+
+    }
+/* 	 function afterInsertBoard() {
+		
+	    alert("게시글이 등록되었습니다.");
+		const url = '/board';
+		
+		// 새로운 페이지로 이동
+		window.location.href = url;
+	} */
+    
+    </script>
+
+    <div>
+        <div>
+            <h2>게시글 업데이트</h2>
+                <table>
+                    <tr>
+                        <th>제목</th>
+                        <td><input type="text" id="title" th:value="${data.title}"></td> 
+                    </tr>
+                    <tr>
+                        <th>작성자</th>
+                         <td><input type="text" id="writer" th:value="${data.writer}" disabled></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea id="content" th:text="${data.content}"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button onclick="fn_sub(boardId)">수정</button></td>
+                        <td><button onclick="window.location.href='board'">목록</button></td>
+                    </tr>
+                </table>
+        </div>
+    </div>
+</body>
+
+</html>

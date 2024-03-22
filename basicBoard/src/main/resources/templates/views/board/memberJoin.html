@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <!-- 필요한 CSS 파일 또는 스타일 시트를 여기에 추가하세요 -->
+    
+<script type="text/javascript">
+function validateForm() {
+    // 사용자 입력 값을 가져옴
+    const username = document.querySelector("#username").value;
+    const memberId = document.querySelector("#memberId").value;
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+	
+    // 여기에 필요한 검증 또는 처리 로직을 추가하세요
+    // 예를 들어, 입력 값이 유효한지 확인하거나, 비밀번호를 암호화할 수 있습니다.
+    // 이 함수는 폼이 실제로 제출되기 전에 호출됩니다.
+    // 만약 검증이 실패하면 제출을 중지할 수 있습니다.
+    // return false; // 폼 제출을 중지하기 위해 false를 반환합니다.
+}
+</script>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <form id="join_form" method="post" action="/memberJoin" onsubmit="return validateForm()">
+        <div>
+            <label for="username">사용자 이름:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="memberId">ID입력: </label>
+            <input type="text" id="memberId" name="memberId" required>
+        </div>
+        <div>
+            <label for="email">이메일:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">가입하기</button>
+    </form>
+</body>
+</html>

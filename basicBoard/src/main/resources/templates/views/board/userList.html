@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 정보 조회</title>
+    <link type="text/css" href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <h2>회원 정보 조회</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>이름</th>
+                <th>이메일</th>
+                <th>전화번호</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 여기에 Thymeleaf를 사용하여 회원 정보를 반복해서 출력 -->
+            <tr th:each="member : ${members}">
+                <td th:text="${member.username}">ID</td>
+                <td th:text="${member.name}">이름</td>
+                <td th:text="${member.email}">이메일</td>
+                <td th:text="${member.phone}">전화번호</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

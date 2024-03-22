@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>게시판</title>
+	
+	<!-- ✅ 추가 -->
+	<link type="text/css" href="/css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="/js/com-ajax.js"></script>
+	<script type="text/javascript">
+	
+	
+	var boardId = [[${data.boardId}]];
+	
+	function fn_sub(boardId){
+		
+		// 파라미터를 포함한 URL 생성
+		const url = '/updateBoards?boardId='+boardId;
+
+		// 새로운 페이지로 이동
+		window.location.href = url;	
+	}
+	</script>
+</head>
+
+<body>
+	<div>
+		<div>
+    <h2>게시글 입력</h2>
+    <table>
+        <tr>
+            <th>제목</th>
+            <td>[[${data.title}]]</td>
+        </tr>
+        <tr>
+            <th>작성자</th>
+            <td>[[${data.writer}]]</td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td>[[${data.content}]]</td>
+        </tr>
+        <tr>
+            <td colspan="2"><button onclick="fn_sub(boardId)">등록</button></td>
+            <td><button onclick="window.location.href='board'">목록</button></td>
+            
+        </tr>
+    </table>
+</div>
+
+	</div>
+	<div>
+		<table>
+			<colgroup>
+				<!-- ✅ 페이지 번호 추가 -->
+				<col width="150px" />
+				<col width="150px" />
+				<col width="150px" />
+				<col width="250px" />
+			</colgroup>
+
+			<tbody id="fieldListBody">
+			</tbody>
+		</table>
+		<!-- ✅ 페이징 표시되는 부분 추가 -->
+		<ul id = "pagingArea" class="pagination"></ul>
+	</div>
+</body>
+</html>
