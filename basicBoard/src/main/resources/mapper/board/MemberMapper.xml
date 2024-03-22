@@ -6,4 +6,10 @@
 		  INSERT INTO member ( member_Id, username,email, password )
         VALUES (#{memberId},#{username}, #{email}, #{password})
 	</insert>
+	
+	
+	<select id="idCheck" resultType="int">
+  		select count(*) from member 
+  		where MEMBER_ID = #{memberId}
+  	</select>
 </mapper>
