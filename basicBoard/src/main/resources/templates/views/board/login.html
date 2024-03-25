@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input class="pw_input" name="memberPw" type="password">
+                <input class="pw_input" name="memberPw">
             </div>
             <input class="login_button"type="button" value="Login">
   			<input type ="button" class="join_button" href="/memberJoin" value="회원가입">        
@@ -36,7 +36,6 @@
 	 $(document).ready(function() {
          $(".join_button").click(function() {
              window.location.href = $(this).attr('href');
-			 
          });
      });
 	</script>

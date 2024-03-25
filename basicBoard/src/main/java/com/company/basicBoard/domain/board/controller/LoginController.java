@@ -32,7 +32,7 @@ public class LoginController {
 		
 		return null;
 	}
-	@RequestMapping(value="/login", method=RequestMethod.POST)
+	@RequestMapping(value="login", method=RequestMethod.POST)
 	public String loginPOST(HttpServletRequest request, MemberVO member, RedirectAttributes rttr){
 		
 		System.out.println("login 메서드 진입");
