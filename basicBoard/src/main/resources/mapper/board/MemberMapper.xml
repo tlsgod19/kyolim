@@ -7,9 +7,12 @@
         VALUES (#{memberId},#{username}, #{email}, #{password})
 	</insert>
 	
-	
 	<select id="idCheck" resultType="int">
   		select count(*) from member 
   		where MEMBER_ID = #{memberId}
   	</select>
+  	<!-- 로그인 -->
+  	<select id="memberLogin" resultType="com.company.basicBoard.domain.board.model.MemberVO">
+  		select member_Id, username, email from book_member where memberId = #{memberId} and password = #{password}
+	</select>
 </mapper>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.company.basicBoard.domain.board.model.BoardVO;
 import com.company.basicBoard.domain.board.model.MemberVO;
 import com.company.basicBoard.domain.board.service.BoardService;
 import com.company.basicBoard.domain.board.service.MemberService;
