@@ -8,7 +8,16 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
   			integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   			crossorigin="anonymous"></script>
+ <style type="text/css">
+ .login_warn{
+    margin-top: 30px;
+    text-align: center;
+    color : red;
+}
+ 
+ </style>
 </head>
+
 <body>
     <div class="login-container">
         <h2>Login</h2>
@@ -19,9 +28,9 @@
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input class="pw_input" name="memberPw" type="password">
-				
-            </div>
+                <input class="pw_input" name="password" type="password">
+          </div>
+          <div class="login_warn">사용자ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
             <input class="login_button"type="button" value="Login">
   			<input type ="button" class="join_button" href="/memberJoin" value="회원가입">        
   			</form>

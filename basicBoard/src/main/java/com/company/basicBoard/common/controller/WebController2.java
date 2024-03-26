@@ -11,8 +11,8 @@ public class WebController2 {
 	/**
 	 * 게시판 페이지 호출
 	 */
-	@GetMapping("/board2")
+	@GetMapping("/")
 	public String board() {
-		return "views/board/list2";
+		return "123";
 	}
 }

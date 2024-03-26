@@ -9,7 +9,7 @@ public class WebController {
 	/**
 	 * 기본 경로 : 게시판 페이지 호출
 	 */
-	@GetMapping("")
+	@GetMapping("/test")
 	public String home() {
 		return "redirect:board";
 	}
@@ -19,7 +19,7 @@ public class WebController {
 	 */
 	@GetMapping("/board")
 	public String board() {
-		return "views/board/list";
+		return "list"; //  views/board/list
 	}
 	@GetMapping("/insert")
 	public String insert() {
