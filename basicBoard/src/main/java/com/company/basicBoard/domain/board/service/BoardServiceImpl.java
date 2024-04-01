@@ -19,26 +19,22 @@ public class BoardServiceImpl implements BoardService {
 	BoardMapper boardMapper;
 
 	
-	@Override
-	public List<BoardVO> selectBoardList(BoardVO boardVO) {
-        
-        return boardMapper.selectBoardList(boardVO);
-	}
 	
 	
-	/*
-	 * @Override public Page<Map<String, Object>> getListBoard(BoardVO board,
-	 * Pageable pageable) {
-	 * 
-	 * 
-	 * // 빌더 패턴으로 data, pageable 파라미터에 데이터 주입 RequestList<?> requestList =
-	 * RequestList.builder() .data(board) .pageable(pageable) .build();
-	 * 
-	 * List<Map<String, Object>> content = boardMapper.getListBoard(requestList);
-	 * int total = boardMapper.getListBoardCount(board);
-	 * 
-	 * return new PageImpl<>(content, pageable, total); }
-	 */
+	
+	
+	  @Override public Page<Map<String, Object>> getListBoard(BoardVO board,
+	  Pageable pageable) {
+	  
+	  
+	  // 빌더 패턴으로 data, pageable 파라미터에 데이터 주입 
+		  RequestList<?> requestList = RequestList.builder() .data(board) .pageable(pageable) .build();
+	  
+	  List<Map<String, Object>> content = boardMapper.getListBoard(requestList);
+	  int total = boardMapper.getListBoardCount(board);
+	  
+	  return new PageImpl<>(content, pageable, total); }
+	 
 	@Override
 	public void getListInsert(BoardVO board, Pageable pageable){
 

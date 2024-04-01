@@ -23,20 +23,11 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 
-	/*
-	 * @GetMapping("") public ResponseEntity<?> getListBoard(BoardVO
-	 * board, @PageableDefault(size = 10) Pageable pageable) { return
-	 * ResponseEntity.ok(boardService.getListBoard(board, pageable)); }
-	 */
-    
-    public String boardList(@ModelAttribute("boardVO") BoardVO boardVO, Model model) throws Exception{
-                
-        List<BoardVO> list = boardService.selectBoardList(boardVO);
-        
-        model.addAttribute("list", list);
-        
-        return "list";
-    }
-    
+	
+	  @GetMapping("") 
+	  public ResponseEntity<?> getListBoard(BoardVO	  board, @PageableDefault(size = 10) Pageable pageable) {
+		 
+		  return ResponseEntity.ok(boardService.getListBoard(board, pageable)); 
+		  }
 	
 }

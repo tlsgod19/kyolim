@@ -19,7 +19,7 @@ public class WebController {
 	 */
 	@GetMapping("/board")
 	public String board() {
-		return "list"; //  views/board/list
+		return "views/board/list"; //  views/board/list
 	}
 	@GetMapping("/insert")
 	public String insert() {

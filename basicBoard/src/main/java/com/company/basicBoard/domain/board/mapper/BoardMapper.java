@@ -10,8 +10,8 @@ import com.company.basicBoard.domain.board.model.BoardVO;
 @Mapper
 public interface BoardMapper {
 
-//	List<Map<String, Object>> getListBoard(RequestList<?> requestList);
-	public List<BoardVO> selectBoardList(BoardVO board);
+	List<Map<String, Object>> getListBoard(RequestList<?> requestList);
+
 	
 	int getListBoardCount(BoardVO board);
 

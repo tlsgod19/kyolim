@@ -31,6 +31,7 @@
                 <input class="pw_input" name="password" type="password">
           </div>
           <div class="login_warn">사용자ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
+          <input id="result" th="${result}" type="hidden"> 
             <input class="login_button"type="button" value="Login">
   			<input type ="button" class="join_button" href="/memberJoin" value="회원가입">        
   			</form>
@@ -42,12 +43,24 @@
 		$("#login_form").attr("action", "/login");
 		$("#login_form").submit();
 		
+	    var result = '$(result)';
+	    //var loginResult = JSON.stringify(result);	    
+	    if(result==0){
+			alert('사용자ID 또는 비밀번호를 잘못 입력하셨습니다.');
+
+	    }
+		
 	});
 	 $(document).ready(function() {
          $(".join_button").click(function() {
              window.location.href = $(this).attr('href');
          });
+         
+
+
+         
      });
-	</script>
+
+	    </script>
 </body>
 </html>
